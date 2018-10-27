@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nodecg:/app
+      - /mnt/slowstore:/storage
+    ports:
+      - 1935:1935
+      - 1935:1935/udp
+      - 80:80
+      - 443:443
+    depends_on:
+      - streamnet
+      - nodecg
+    restart: always
+  streamnet:
+    build: ./app
+    ports:
+      - 9000:80
+    environment:
+      - APP_EVENTID=48
+    restart: always
+  nodecg:
+    build: ./nodecg
+    volumes:
+      - ./nodecg/cfg:/usr/src/app/cfg
+      - ./nodecg/db:/usr/src/app/db
+      - ./nodecg/logs:/usr/src/app/logs
+    ports:
+      - 9090:80
+    restart: always

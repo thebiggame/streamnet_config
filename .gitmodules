@@ -1,0 +1,3 @@
+[submodule "nodecg/bundles/thebiggame"]
+	path = nodecg/bundles/thebiggame
+	url = https://github.com/thebiggame/nodecg_bundle.git

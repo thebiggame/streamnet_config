@@ -1,13 +1,5 @@
-# theBIGGAME/docker_nginx_rtmp_ffmpeg
+# theBIGGAME/streamnet_config
 
-This is a special docker image with nginx, rtmp, and ffmpeg built in.
+`streamnet_config` contains the configuration bundle / dockerfiles that build up the Streamnet server (aka stream.biggame).
 
-It is designed to be run with config files that automatically transcode incoming feeds to another ingest endpoint for consumption.
-
-## Config Files / Scripts
-
-The config files inside `/config` are examples only, and should be modified to your taste (they're fairly hard coded to sit as a reverse proxy for NodeCG / other stuff, which probably isn't appropriate for your environment).
-
-`/config/stat.xsl` is provided under the terms set out at https://github.com/arut/nginx-rtmp-module/blob/master/LICENSE
-
-
+A docker-compose manifest is included in the root which should spin everything up (but you'll need to copy in a nodecg bundle to `/nodecg/bundles`, as well as the `streamnet_app` application to `/app`).
