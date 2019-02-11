@@ -1,3 +1,7 @@
 [submodule "nodecg/bundles/thebiggame"]
 	path = nodecg/bundles/thebiggame
 	url = https://github.com/thebiggame/nodecg_bundle.git
+
+[submodule "app/"]
+	path = app
+	url = https://github.com/thebiggame/streamnet_web.git
