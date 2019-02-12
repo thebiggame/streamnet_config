@@ -5,4 +5,4 @@ COPY bundles /usr/src/app/bundles
 
 # Install dependencies
 RUN cd /usr/src/app/bundles/thebiggame && npm install --production
-RUN cd /usr/src/app/bundles/thebiggame && bower install --allow-root
+RUN cd /usr/src/app/bundles/thebiggame && GIT_DIR=/tmp bower install --allow-root
