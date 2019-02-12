@@ -17,8 +17,6 @@ services:
     restart: always
   streamnet:
     build: ./app
-    ports:
-      - 9000:80
     environment:
       - APP_EVENTID=48
     restart: always
@@ -28,6 +26,4 @@ services:
       - ./nodecg/cfg:/usr/src/app/cfg
       - ./nodecg/db:/usr/src/app/db
       - ./nodecg/logs:/usr/src/app/logs
-    ports:
-      - 9090:80
     restart: always
