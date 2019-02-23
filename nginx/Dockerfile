@@ -3,6 +3,9 @@ FROM buildpack-deps:stretch
 # Version of Nginx to use
 ENV NGINX_VERSION nginx-1.15.5
 
+ARG tbgtv_key
+ARG twitch_key
+
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y ca-certificates openssl libssl-dev ffmpeg && \
@@ -48,6 +51,5 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 
 # Set up config
 COPY config/* /etc/nginx/
-RUN chmod +x /etc/nginx/rtmp_*.sh
-EXPOSE 1935
-CMD ["nginx", "-g", "daemon off;"]
+RUN sed -i -e "s/TWITCH_KEY/${twitch_key}/g" /etc/nginx/rtmp.conf && \
+    sed -i -e "s/TBGTV_KEY/${tbgtv_key}/g" /etc/nginx/nginx.con

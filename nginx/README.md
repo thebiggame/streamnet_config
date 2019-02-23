@@ -9,3 +9,11 @@ It is designed to be run with config files that automatically transcode incoming
 The config files inside `/nginx/config` are examples only, and should be modified to your taste (they're fairly hard coded to sit as a reverse proxy for NodeCG / other stuff, which probably isn't appropriate for your environment).
 
 `/nginx/config/stat.xsl` is provided under the terms set out at https://github.com/arut/nginx-rtmp-module/blob/master/LICENSE
+
+### Clone with submodules
+
+`git clone --recurse-submodules git@github.com:thebiggame/streamnet_config.git`
+
+### Build
+
+`docker-compose build --build-arg tbgtv_key="<KEY>" --build-arg twitch_key="<KEY>" nginx nodecg streamnet`

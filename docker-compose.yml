@@ -5,11 +5,11 @@ services:
     build: ./nginx
     volumes:
       - ./nodecg:/app
-      - /mnt/slowstore:/storage
+      - /tmp/slowstore:/storage
     ports:
       - 1935:1935
       - 1935:1935/udp
-      - 80:80
+      - 8080:80
       - 443:443
     depends_on:
       - streamnet
@@ -26,4 +26,6 @@ services:
       - ./nodecg/cfg:/usr/src/app/cfg
       - ./nodecg/db:/usr/src/app/db
       - ./nodecg/logs:/usr/src/app/logs
+    ports:
+        - 9090:9090
     restart: always
