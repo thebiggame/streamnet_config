@@ -52,4 +52,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 # Set up config
 COPY config/* /etc/nginx/
 RUN sed -i -e "s/TWITCH_KEY/${twitch_key}/g" /etc/nginx/rtmp.conf && \
-    sed -i -e "s/TBGTV_KEY/${tbgtv_key}/g" /etc/nginx/nginx.con
+    sed -i -e "s/TBGTV_KEY/${tbgtv_key}/g" /etc/nginx/nginx.conf
+EXPOSE 1935
+CMD ["nginx", "-g", "daemon off;"]
