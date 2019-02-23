@@ -10,7 +10,7 @@ services:
       - 1935:1935
       - 1935:1935/udp
       - 8080:80
-      - 443:443
+      - 4430:443
     depends_on:
       - streamnet
       - nodecg
